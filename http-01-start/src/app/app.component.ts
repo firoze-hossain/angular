@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from "rxjs/operators";
+import {Post} from "./post.model";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {map} from "rxjs/operators";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadedPosts = [];
+  loadedPosts: Post[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -17,8 +18,8 @@ export class AppComponent implements OnInit {
     this.fetchPosts();
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
-    this.http.post('https://ng-complete-guide-59349-default-rtdb.firebaseio.com/posts.json', postData).subscribe(responseData => {
+  onCreatePost(postData: Post) {
+    this.http.post<{ name: string }>('https://ng-complete-guide-59349-default-rtdb.firebaseio.com/posts.json', postData).subscribe(responseData => {
       console.log(responseData);
     });
   }
@@ -33,9 +34,9 @@ export class AppComponent implements OnInit {
   }
 
   private fetchPosts() {
-    this.http.get('https://ng-complete-guide-59349-default-rtdb.firebaseio.com/posts.json')
+    this.http.get<{ [key: string]: Post }>('https://ng-complete-guide-59349-default-rtdb.firebaseio.com/posts.json')
       .pipe(map(responseData => {
-        const postsArray = [];
+        const postsArray: Post[] = [];
         for (const key in responseData) {
           if (responseData.hasOwnProperty(key)) {
             postsArray.push({...responseData[key], id: key});
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
         return postsArray;
       }))
       .subscribe(posts => {
-        console.log(posts);
+        this.loadedPosts = posts;
       });
   }
 }
