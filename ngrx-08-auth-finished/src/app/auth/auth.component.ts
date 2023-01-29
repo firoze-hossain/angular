@@ -5,14 +5,12 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {Router} from '@angular/router';
-import {Observable, Subscription} from 'rxjs';
-import {Store} from '@ngrx/store';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 
-import {AuthService, AuthResponseData} from './auth.service';
-import {AlertComponent} from '../shared/alert/alert.component';
-import {PlaceholderDirective} from '../shared/placeholder/placeholder.directive';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 import * as fromApp from '../store/app.reducer';
 import * as AuthActions from './store/auth.actions';
 
@@ -24,18 +22,15 @@ export class AuthComponent implements OnInit, OnDestroy {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
-  @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
+  @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
 
   private closeSub: Subscription;
   private storeSub: Subscription;
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
     private componentFactoryResolver: ComponentFactoryResolver,
     private store: Store<fromApp.AppState>
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.storeSub = this.store.select('auth').subscribe(authState => {
@@ -61,10 +56,12 @@ export class AuthComponent implements OnInit, OnDestroy {
     if (this.isLoginMode) {
       // authObs = this.authService.login(email, password);
       this.store.dispatch(
-        new AuthActions.LoginStart({email: email, password: password})
+        new AuthActions.LoginStart({ email: email, password: password })
       );
     } else {
-      this.store.dispatch(new AuthActions.SignupStart({email: email, password: password}));
+      this.store.dispatch(
+        new AuthActions.SignupStart({ email: email, password: password })
+      );
     }
 
     form.reset();
