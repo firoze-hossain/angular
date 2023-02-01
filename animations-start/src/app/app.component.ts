@@ -40,6 +40,23 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         })),
         animate(500)
       ])
+    ]),
+    trigger('list1', [
+      state('in', style({
+        opacity: 1,
+        transform: 'translateX(0)'
+      })),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100px)'
+        }),
+        animate(300)]),
+      transition('* => void', [
+        animate(300, style({
+          transform: 'translateX(100px)',
+          opacity: 0
+        }))])
     ])
   ]
 })
@@ -59,5 +76,14 @@ export class AppComponent {
 
   onAdd(item) {
     this.list.push(item);
+  }
+
+  onDelete(item: string) {
+    const updatedList = this.list;
+    const index: number = updatedList.indexOf(item);
+    if (index !== -1) {
+      updatedList.splice(index, 1);
+    }
+    this.list = updatedList;
   }
 }
