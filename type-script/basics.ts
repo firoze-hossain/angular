@@ -7,10 +7,11 @@ instruct = true;
 
 let hobbies: string[];
 hobbies = ["Coding", "Cricket"];
-let person: {
+type person = {
     name: string,
     age: number
-};
+}
+let person: person;
 person = {
     name: "Firoze",
     age: 32
@@ -18,10 +19,7 @@ person = {
 // person = {
 //     isEmployee: true
 // }
-let pepole: {
-    name: string,
-    age: number
-}[];
+let pepole: person[];
 //type inference
 let course: string | number = 'Angular-complete guide';
 course = 123;
