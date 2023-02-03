@@ -70,3 +70,27 @@ class Student {
 const student = new Student('Md. Firoze', 'Hossain', 27, ['Angular']);
 student.enrol('Java');
 student.listCourses();
+
+interface Human {
+    name: string;
+    age: number;
+    greet: () => void;
+}
+
+let firoze: Human;
+firoze = {
+    name: 'Firoze Hossain',
+    age: 27,
+    greet() {
+        console.log("Welcome Firoze");
+    }
+}
+
+class Instructor implements Human {
+    name: 'Md. Firoze Hossain';
+    age: 27;
+
+    greet() {
+        console.log('Welcome to Backend Engineering');
+    }
+}
