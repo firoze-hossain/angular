@@ -22,3 +22,6 @@ let pepole: {
     name: string,
     age: number
 }[];
+//type inference
+let course = 'Angular-complete guide';
+//course = 123;
