@@ -42,4 +42,31 @@ function insertAtBeginning<T>(array: T[], value: T) {
 const demoArray = [1, 2, 3];
 const updatedArray = insertAtBeginning(demoArray, -1);
 const stirngArray = insertAtBeginning(['a', 'b', 'c'], 'd');
+
 //updatedArray[0].split('');
+
+class Student {
+    // firstName: string;
+    // lastName: string;
+    // age: number;
+    // private courses: string[];
+
+    constructor(public firstName: string, public lastName: string, public age: number, private courses: string[]) {
+        // this.firstName = first;
+        // this.lastName = last;
+        // this.age = age;
+        // this.courses = courses;
+    }
+
+    enrol(courseName: string) {
+        this.courses.push(courseName);
+    }
+
+    listCourses() {
+        return this.courses.slice();
+    }
+}
+
+const student = new Student('Md. Firoze', 'Hossain', 27, ['Angular']);
+student.enrol('Java');
+student.listCourses();
