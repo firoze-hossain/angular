@@ -1,6 +1,6 @@
 let age: number;
 age = 27;
-let username: string;
+let username: string | string[];
 username = 'Firoze';
 let instruct: boolean;
 instruct = true;
@@ -23,5 +23,5 @@ let pepole: {
     age: number
 }[];
 //type inference
-let course = 'Angular-complete guide';
-//course = 123;
+let course: string | number = 'Angular-complete guide';
+course = 123;
