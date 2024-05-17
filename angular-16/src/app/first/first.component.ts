@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./first.component.scss']
 })
 export class FirstComponent {
-
+name:string='';
+email:string='';
+message:string='';
 }

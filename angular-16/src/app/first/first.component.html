@@ -3,24 +3,24 @@
   <form>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" id="name" required>
+      <input type="text" id="name" [(ngModel)]="name" name="name" required>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="text" id="email" required>
+      <input type="text" id="email" [(ngModel)]="email" name="email" required>
     </div>
     <div class="form-group">
       <label for="message">Message:</label>
-      <textarea rows="4" id="message" required></textarea>
+      <textarea rows="4" id="message" [(ngModel)]="message" name="message" required></textarea>
     </div>
     <button type="submit">Submit</button>
   </form>
 
   <div>
     <h3>Form Data:</h3>
-    <p><strong>Name:</strong></p>
-    <p><strong>Email:</strong></p>
-    <p><strong>Message:</strong></p>
+    <p><strong>Name:</strong>{{name}}</p>
+    <p><strong>Email:</strong>{{email}}</p>
+    <p><strong>Message:</strong>{{message}}</p>
   </div>
 
 </div>
