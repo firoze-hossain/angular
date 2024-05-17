@@ -9,4 +9,8 @@ export class FirstComponent {
 name:string='';
 email:string='';
 message:string='';
+
+  onSubmit() :void{
+    console.log(this.name);
+  }
 }
