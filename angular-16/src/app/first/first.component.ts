@@ -13,6 +13,5 @@ isSubmitted:boolean= false;
 
   onSubmit() :void{
     console.log(this.isSubmitted=true);
-    console.log(this.name)
   }
 }
