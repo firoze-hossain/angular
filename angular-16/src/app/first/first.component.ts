@@ -9,8 +9,9 @@ export class FirstComponent {
 name:string='';
 email:string='';
 message:string='';
+isSubmitted:boolean= false;
 
   onSubmit() :void{
-    console.log(this.name);
+    console.log(this.isSubmitted=true);
   }
 }
