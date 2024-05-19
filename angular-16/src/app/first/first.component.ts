@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MyFirstService} from "../services/my-first.service";
 
 @Component({
@@ -12,8 +12,12 @@ export class FirstComponent {
   message: string = '';
   isSubmitted: boolean = false;
   messages: Array<any> = [];
+  //property injection
+  // firstService: MyFirstService = inject(MyFirstService);
 
-  constructor(private firstService: MyFirstService) {
+  constructor(
+     private firstService: MyFirstService
+  ) {
     this.messages = this.firstService.getAllMessages();
     this.isSubmitted = this.messages.length > 0;
   }
