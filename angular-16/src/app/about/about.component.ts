@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {ProductService} from "../services/product.service";
 
 @Component({
   selector: 'app-about',
@@ -7,16 +8,29 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private productService: ProductService) {
   }
-
-  param: any;
-  queryParam: any;
 
   ngOnInit(): void {
-    console.log(this.activatedRoute);
-    this.param=this.activatedRoute.snapshot.params['username'];
-    this.queryParam=this.activatedRoute.snapshot.queryParams['course'];
+    this.productService.getAllProductsWithLimit()
+      .subscribe({
+        next: (data): void => {
+          console.log(data);
+        }
+      })
   }
+
+  // constructor(private activatedRoute: ActivatedRoute) {
+  // }
+  //
+  // param: any;
+  // queryParam: any;
+  //
+  // ngOnInit(): void {
+  //   console.log(this.activatedRoute);
+  //   this.param=this.activatedRoute.snapshot.params['username'];
+  //   this.queryParam=this.activatedRoute.snapshot.queryParams['course'];
+  // }
+
 
 }
