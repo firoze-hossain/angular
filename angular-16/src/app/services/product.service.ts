@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ProductData} from "./model/product-data";
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  getAllProductsWithLimit(limit: number = 5): Observable<any> {
+  getAllProductsWithLimit(limit: number = 5): Observable<Array<ProductData>> {
     // const productUrl:string=this.baseUrl+"products?limit="+5;
     const productUrl: string = `${this.baseUrl}products?limit=${limit}`;
-    return this.http.get<any>(productUrl);
+    return this.http.get<Array<ProductData>>(productUrl);
   }
 }
