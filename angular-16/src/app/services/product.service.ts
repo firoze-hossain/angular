@@ -17,4 +17,9 @@ export class ProductService {
     const productUrl: string = `${this.baseUrl}products?limit=${limit}`;
     return this.http.get<Array<ProductData>>(productUrl);
   }
+
+  createProduct(product: ProductData): Observable<ProductData> {
+    const productUrl: string = `${this.baseUrl}products`;
+    return this.http.post<ProductData>(productUrl, product);
+  }
 }

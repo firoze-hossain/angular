@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../services/product.service";
+import {ProductData} from "../services/model/product-data";
 
 @Component({
   selector: 'app-about',
@@ -12,12 +13,24 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.getAllProductsWithLimit()
-      .subscribe({
-        next: (data): void => {
-          console.log(data);
-        }
-      })
+    // this.productService.getAllProductsWithLimit()
+    //   .subscribe({
+    //     next: (data): void => {
+    //       console.log(data);
+    //     }
+    //   })
+    const product: ProductData = {
+      title: "Mac",
+      description: "Hello Mac",
+      price: 2005,
+      category: "Computer",
+      image: "http://hello.jpg"
+    };
+    this.productService.createProduct(product).subscribe({
+      next: (data): void => {
+        console.log(data);
+      }
+    })
   }
 
   // constructor(private activatedRoute: ActivatedRoute) {
