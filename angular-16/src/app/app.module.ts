@@ -10,6 +10,8 @@ import {MyFirstService} from "./services/my-first.service";
 import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { ProdcutsComponent } from './prodcuts/prodcuts.component';
+import { ProdcutDetailsComponent } from './prodcut-details/prodcut-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     FirstComponent,
     MessageDetailsComponent,
     MenuComponent,
-    AboutComponent
+    AboutComponent,
+    ProdcutsComponent,
+    ProdcutDetailsComponent
   ],
   imports: [
     BrowserModule,

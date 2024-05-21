@@ -7,7 +7,7 @@ export interface ProductData {
   image?: string;
   price?: number;
   title?: string;
-  rating?: RatingData
+  rating?: RatingData;
 
 
 }

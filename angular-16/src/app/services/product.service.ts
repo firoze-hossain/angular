@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   createProduct(product: ProductData): Observable<ProductData> {
-    const productUrl: string = `${this.baseUrl}productsss`;
+    const productUrl: string = `${this.baseUrl}products`;
     return this.http.post<ProductData>(productUrl, product);
   }
 }
