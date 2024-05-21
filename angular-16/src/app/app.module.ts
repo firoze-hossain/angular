@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ProdcutsComponent } from './prodcuts/prodcuts.component';
 import { ProdcutDetailsComponent } from './prodcut-details/prodcut-details.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProdcutDetailsComponent } from './prodcut-details/prodcut-details.compo
     MenuComponent,
     AboutComponent,
     ProdcutsComponent,
-    ProdcutDetailsComponent
+    ProdcutDetailsComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
